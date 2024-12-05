@@ -30,7 +30,15 @@ export default class HashMap {
       list.append(key, value);
     }
   };
-  get = (key) => {};
+  get = (key) => {
+    const hashed = this.hash(key);
+    const list = this.array[hashed];
+    if (list.contains(key)) {
+      return list.at(list.find(key)).value;
+    } else {
+      return null;
+    }
+  };
   has = (key) => {};
   remove = (key) => {};
   length = () => {};

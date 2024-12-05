@@ -11,3 +11,4 @@ hashMap.set("dziwki", "dziwki");
 hashMap.set("boks", "tajski boks");
 
 console.log(hashMap.array);
+console.log(hashMap.get("boks"));
