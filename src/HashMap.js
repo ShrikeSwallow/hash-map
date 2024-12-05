@@ -1,3 +1,5 @@
+import Node from "./Node";
+import LinkedList from "./LinkedList";
 export default class HashMap {
   constructor() {
     this.loadFactor = 0.75;
