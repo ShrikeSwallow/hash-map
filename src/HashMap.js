@@ -2,8 +2,9 @@ import Node from "./Node";
 import LinkedList from "./LinkedList";
 export default class HashMap {
   constructor() {
+    this.array = [];
     this.loadFactor = 0.75;
-    this.capacity = 16;
+    this.capacity = 2;
   }
   hash = (key) => {
     let hashCode = 0;
@@ -15,7 +16,21 @@ export default class HashMap {
 
     return hashCode;
   };
-  set = (key, value) => {};
+  set = (key, value) => {
+    const hashed = this.hash(key);
+    if (!this.array[hashed]) {
+      const list = new LinkedList();
+      this.array[hashed] = list;
+    }
+    const list = this.array[hashed];
+    console.log(list.contains(key));
+    if (list.contains(key)) {
+      console.log("Update the value");
+      console.log(list.find(key));
+    } else {
+      list.append(key, value);
+    }
+  };
   get = (key) => {};
   has = (key) => {};
   remove = (key) => {};

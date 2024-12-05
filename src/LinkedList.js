@@ -84,7 +84,7 @@ export default class LinkedList {
   };
   contains = (key) => {
     let temp = this.headNode;
-    while (temp.nextNode !== null) {
+    while (temp) {
       if (temp.key === key) {
         return true;
       } else {
@@ -96,7 +96,7 @@ export default class LinkedList {
   find = (key) => {
     let temp = this.headNode;
     let counter = 0;
-    while (temp.nextNode !== null) {
+    while (temp) {
       if (temp.key === key) {
         return counter;
       } else {
