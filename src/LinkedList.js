@@ -5,9 +5,9 @@ export default class LinkedList {
     this.tailNode = this.headNode;
     this.listSize = 0;
   }
-  append = (value) => {
+  append = (key, value) => {
     if (this.listSize === 0) {
-      this.headNode = new Node(value);
+      this.headNode = new Node(key, value);
       this.tailNode = this.headNode;
     } else {
       this.tailNode.nextNode = new Node(value);
@@ -15,12 +15,12 @@ export default class LinkedList {
     }
     this.listSize += 1;
   };
-  prepend = (value) => {
+  prepend = (key, value) => {
     if (this.listSize === 0) {
-      this.headNode = new Node(value);
+      this.headNode = new Node(key, value);
       this.tailNode = this.headNode;
     } else {
-      const temp = new Node(value);
+      const temp = new Node(key, value);
       temp.nextNode = this.headNode;
       this.headNode = temp;
     }
@@ -30,10 +30,16 @@ export default class LinkedList {
     return this.listSize;
   };
   head = () => {
-    return this.headNode.value ?? "The list is empty";
+    return (
+      { key: this.headNode.key, value: this.headNode.value } ??
+      "The list is empty"
+    );
   };
   tail = () => {
-    return this.tailNode.value ?? "The list is empty";
+    return (
+      { key: this.tailNode.key, value: this.tailNode.value } ??
+      "The list is empty"
+    );
   };
   at = (index) => {
     if (index >= 0 && index < this.listSize) {
@@ -42,7 +48,7 @@ export default class LinkedList {
 
       while (currentIndex < this.listSize) {
         if (currentIndex === index) {
-          return temp.value;
+          return { key: temp.key, value: temp.value };
         } else {
           temp = temp.nextNode;
           currentIndex += 1;
@@ -57,7 +63,9 @@ export default class LinkedList {
     let counter = 0;
     let limit = this.listSize - 1;
     if (limit === 0) {
+      this.headNode.key = null;
       this.headNode.value = null;
+      this.tailNode.key = null;
       this.tailNode.value = null;
       this.listSize = 0;
       return;
@@ -74,10 +82,10 @@ export default class LinkedList {
       }
     }
   };
-  contains = (value) => {
+  contains = (key) => {
     let temp = this.headNode;
     while (temp.nextNode !== null) {
-      if (temp.value === value) {
+      if (temp.key === key) {
         return true;
       } else {
         temp = temp.nextNode;
@@ -85,11 +93,11 @@ export default class LinkedList {
     }
     return false;
   };
-  find = (value) => {
+  find = (key) => {
     let temp = this.headNode;
     let counter = 0;
     while (temp.nextNode !== null) {
-      if (temp.value === value) {
+      if (temp.key === key) {
         return counter;
       } else {
         temp = temp.nextNode;
@@ -114,20 +122,20 @@ export default class LinkedList {
   };
 
   // extra credit methods
-  insertAt = (value, index) => {
+  insertAt = (key, value, index) => {
     if (index === 0) {
-      this.prepend(value);
+      this.prepend(key, value);
       return;
     }
     if (index === this.listSize) {
-      this.append(value);
+      this.append(key, value);
       return;
     }
     let temp = this.headNode;
     let currentIndex = 0;
     while (currentIndex < this.listSize) {
       if (currentIndex === index - 1) {
-        const newNode = new Node(value);
+        const newNode = new Node(key, value);
         newNode.nextNode = temp.nextNode;
         temp.nextNode = newNode;
         this.listSize += 1;
