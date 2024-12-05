@@ -121,6 +121,16 @@ export default class LinkedList {
     return `${string} null`;
   };
 
+  update = (key, newValue) => {
+    let temp = this.headNode;
+    while (temp) {
+      if (key === temp.key) {
+        temp.value = newValue;
+        return;
+      } else temp = temp.nextNode;
+    }
+  };
+
   // extra credit methods
   insertAt = (key, value, index) => {
     if (index === 0) {
