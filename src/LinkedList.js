@@ -2,7 +2,7 @@ import Node from "./Node";
 export default class LinkedList {
   constructor() {
     this.headNode = new Node();
-    this.tailNode = this.headNode;
+    this.tailNode = new Node();
     this.listSize = 0;
   }
   append = (key, value) => {
@@ -10,7 +10,7 @@ export default class LinkedList {
       this.headNode = new Node(key, value);
       this.tailNode = this.headNode;
     } else {
-      this.tailNode.nextNode = new Node(value);
+      this.tailNode.nextNode = new Node(key, value);
       this.tailNode = this.tailNode.nextNode;
     }
     this.listSize += 1;

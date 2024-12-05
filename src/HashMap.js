@@ -23,11 +23,9 @@ export default class HashMap {
       this.array[hashed] = list;
     }
     const list = this.array[hashed];
-    console.log(list.contains(key));
     if (list.contains(key)) {
       console.log("Update the value");
       list.update(key, value);
-      console.log(list.find(key));
     } else {
       list.append(key, value);
     }

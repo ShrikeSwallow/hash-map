@@ -4,10 +4,10 @@ import HashMap from "./HashMap";
 const hashMap = new HashMap();
 
 hashMap.set("boks", "boks");
-hashMap.set("boks", "boks");
-hashMap.set("boks", "boks");
-console.log(hashMap.array[1].at(0));
+hashMap.set("dupa", "dupa");
+hashMap.set("koks", "koks");
+hashMap.set("dziwki", "dziwki");
 
 hashMap.set("boks", "tajski boks");
 
-console.log(hashMap.array[1].at(0));
+console.log(hashMap.array);
