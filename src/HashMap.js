@@ -61,7 +61,10 @@ export default class HashMap {
       }
     }, 0);
   };
-  clear = () => {};
+  clear = () => {
+    this.array = [];
+    this.capacity = 16;
+  };
   keys = () => {};
   values = () => {};
   entries = () => {};
