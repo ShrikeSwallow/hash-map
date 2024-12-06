@@ -44,7 +44,16 @@ export default class HashMap {
     const list = this.array[hashed];
     return list.contains(key);
   };
-  remove = (key) => {};
+  remove = (key) => {
+    const hashed = this.hash(key);
+    const list = this.array[hashed];
+    if (list.contains(key)) {
+      list.removeAt(list.find(key));
+      return true;
+    } else {
+      return false;
+    }
+  };
   length = () => {};
   clear = () => {};
   keys = () => {};
