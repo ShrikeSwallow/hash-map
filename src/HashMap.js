@@ -6,6 +6,17 @@ export default class HashMap {
     this.loadFactor = 0.75;
     this.capacity = 8;
   }
+  checkCapacity = () => {
+    let mapSize = 0;
+    this.array.forEach((ele) => {
+      if (ele) {
+        mapSize += 1;
+      }
+    });
+    if (mapSize > this.capacity * this.loadFactor) {
+      this.capacity *= 2;
+    }
+  };
   hash = (key) => {
     let hashCode = 0;
 
@@ -28,6 +39,7 @@ export default class HashMap {
       list.update(key, value);
     } else {
       list.append(key, value);
+      this.checkCapacity();
     }
   };
   get = (key) => {
