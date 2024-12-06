@@ -83,5 +83,13 @@ export default class HashMap {
     });
     return valueArr.flat(Infinity);
   };
-  entries = () => {};
+  entries = () => {
+    let pairArr = [];
+    this.array.forEach((ele) => {
+      if (ele) {
+        pairArr = [...pairArr, ele.allPairs()];
+      }
+    });
+    return pairArr.flat();
+  };
 }
