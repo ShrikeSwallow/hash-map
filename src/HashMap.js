@@ -39,7 +39,11 @@ export default class HashMap {
       return null;
     }
   };
-  has = (key) => {};
+  has = (key) => {
+    const hashed = this.hash(key);
+    const list = this.array[hashed];
+    return list.contains(key);
+  };
   remove = (key) => {};
   length = () => {};
   clear = () => {};
