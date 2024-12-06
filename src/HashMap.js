@@ -4,7 +4,7 @@ export default class HashMap {
   constructor() {
     this.array = [];
     this.loadFactor = 0.75;
-    this.capacity = 2;
+    this.capacity = 8;
   }
   hash = (key) => {
     let hashCode = 0;
@@ -54,7 +54,13 @@ export default class HashMap {
       return false;
     }
   };
-  length = () => {};
+  length = () => {
+    return this.array.reduce((total, current) => {
+      if (current) {
+        return total + current.size();
+      }
+    }, 0);
+  };
   clear = () => {};
   keys = () => {};
   values = () => {};

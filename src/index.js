@@ -12,4 +12,4 @@ hashMap.set("boks", "tajski boks");
 
 console.log(hashMap.array);
 console.log(hashMap.get("boks"));
-console.log(hashMap.remove("boks"));
+console.log(hashMap.length());
