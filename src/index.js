@@ -14,3 +14,4 @@ console.log(hashMap.array);
 console.log(hashMap.get("boks"));
 console.log(hashMap.length());
 console.log(hashMap.keys());
+console.log(hashMap.values());

@@ -69,12 +69,19 @@ export default class HashMap {
     let keyArr = [];
     this.array.forEach((ele) => {
       if (ele) {
-        console.log(ele);
         keyArr = [...keyArr, ele.allKeys()];
       }
     });
     return keyArr.flat(Infinity);
   };
-  values = () => {};
+  values = () => {
+    let valueArr = [];
+    this.array.forEach((ele) => {
+      if (ele) {
+        valueArr = [...valueArr, ele.allValues()];
+      }
+    });
+    return valueArr.flat(Infinity);
+  };
   entries = () => {};
 }
