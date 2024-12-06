@@ -131,6 +131,16 @@ export default class LinkedList {
     }
   };
 
+  allKeys = () => {
+    let temp = this.headNode;
+    const keyArr = [];
+    while (temp) {
+      keyArr.push(temp.key);
+      temp = temp.nextNode;
+    }
+    return keyArr;
+  };
+
   // extra credit methods
   insertAt = (key, value, index) => {
     if (index === 0) {

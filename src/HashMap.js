@@ -65,7 +65,19 @@ export default class HashMap {
     this.array = [];
     this.capacity = 16;
   };
-  keys = () => {};
+  keys = () => {
+    const keyArr = [];
+    this.array.forEach((ele) => {
+      if (ele) {
+        console.log(ele);
+        while (ele) {
+          keyArr.push(ele.key);
+          ele = ele.nextNode;
+        }
+      }
+    });
+    return keyArr;
+  };
   values = () => {};
   entries = () => {};
 }

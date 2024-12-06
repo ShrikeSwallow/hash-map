@@ -13,5 +13,4 @@ hashMap.set("boks", "tajski boks");
 console.log(hashMap.array);
 console.log(hashMap.get("boks"));
 console.log(hashMap.length());
-hashMap.clear();
-console.log(hashMap.array);
+console.log(hashMap.keys());
